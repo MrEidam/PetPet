@@ -4,6 +4,26 @@
     box-sizing: border-box;
 }
 body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
     background: #333;
     color: #fff;
+}
+.activ{
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.item{
+    border: red solid 2px;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    margin: .5rem;
+    gap: 10px;
+    background: #222222cc;
 }

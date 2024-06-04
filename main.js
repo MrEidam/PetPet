@@ -1,15 +1,49 @@
+const Dage = document.querySelector('#ageN');
+const Aimg = document.querySelector('#anim')
+
 const Djoy = document.querySelector('#joyN');
 const Dfood = document.querySelector('#fooN');
 const Dclean = document.querySelector('#cleN');
 const Dhealth = document.querySelector('#heaN');
 
-let joy=10, hunger=30, clean=50, hp=100;
+const imgTiger = {
+    Normal: {
+        tiger: [
+            '../img/tiger/baby.png',
+            '../img/tiger/teen.png',
+            '../img/tiger/adult.png',
+            '../img/tiger/senior.png'
+        ]
+    },
+    ////"Spring": {},
+    Dead: './img/dead/tiger.png'
+}
+
+let joy=10, hunger=30, clean=50, hp=100, age=0;
+
+window.addEventListener('load',() => {
+    display();
+    time();
+})
 
 function display(){
+    Dage.innerHTML = age;
     Djoy.innerHTML = joy;
     Dfood.innerHTML = hunger;
     Dclean.innerHTML = clean;
     Dhealth.innerHTML = hp;
+
+    if(age<=6){
+        Aimg.src = imgTiger.Normal.tiger[0];
+    }else if(age<18){
+        Aimg.src = imgTiger.Normal.tiger[1];
+    }else if(age<60){
+        Aimg.src = imgTiger.Normal.tiger[2];
+    }else if(age<100){
+        Aimg.src = imgTiger.Normal.tiger[3];
+    }else{
+        Aimg.src = imgTiger.Dead;
+    }
 }
 
 function play(){
@@ -45,4 +79,18 @@ function clearBoy(){
         joy -= Math.floor(Math.random()*11);
     }
     display();
+}
+
+function time(){
+    setTimeout (() => {
+        hunger--;
+        clean--;
+        joy--;
+        age+=0.5;
+        display();
+
+
+
+        time();
+    },1000);
 }

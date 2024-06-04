@@ -15,7 +15,10 @@ const imgTiger = {
             './img/tiger/senior.png'
         ]
     },
-    ////"Spring": {},
+    ////Spring: {},
+    ////Summer: {},
+    ////Fall: {},
+    ////Winter: {},
     Dead: './img/dead/tiger.png'
 }
 

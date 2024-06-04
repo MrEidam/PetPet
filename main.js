@@ -44,6 +44,8 @@ function display(){
     }else{
         Aimg.src = imgTiger.Dead;
     }
+
+    if(hp<=0) Aimg.src = imgTiger.Dead;
 }
 
 function play(){
@@ -83,10 +85,13 @@ function clearBoy(){
 
 function time(){
     setTimeout (() => {
-        hunger--;
+        if(hunger>0) hunger--;
         clean--;
         joy--;
-        age+=0.5;
+        if(hp>0) age+=0.5;
+        if(hunger===0) hp--;
+
+        
         display();
 
 

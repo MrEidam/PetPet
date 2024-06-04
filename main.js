@@ -9,10 +9,10 @@ const Dhealth = document.querySelector('#heaN');
 const imgTiger = {
     Normal: {
         tiger: [
-            '../img/tiger/baby.png',
-            '../img/tiger/teen.png',
-            '../img/tiger/adult.png',
-            '../img/tiger/senior.png'
+            './img/tiger/baby.png',
+            './img/tiger/teen.png',
+            './img/tiger/adult.png',
+            './img/tiger/senior.png'
         ]
     },
     ////"Spring": {},

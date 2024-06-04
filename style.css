@@ -2,6 +2,7 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    text-align: center;
 }
 body{
     display: flex;
@@ -12,6 +13,10 @@ body{
     background: #333;
     color: #fff;
 }
+#anim{
+    width: 200px;
+    aspect-ratio: 1/1;
+}
 .activ{
     margin-top: 1rem;
     display: flex;
@@ -19,7 +24,8 @@ body{
     flex-wrap: wrap;
 }
 .item{
-    border: red solid 2px;
+    /*border: red solid 2px;*/
+    border-radius: .5rem;
     display: flex;
     flex-direction: column;
     padding: 1rem;
@@ -27,3 +33,11 @@ body{
     gap: 10px;
     background: #222222cc;
 }
+main{
+    clip-path: polygon(20% 0, 80% 0, 100% 100%, 0 100%);
+}
+.Lime{color: lime;}
+.Yellow{color: yellow;}
+.Orange{color: orange;}
+.Red{color: red;}
+.DarkRed{color: darkred;}

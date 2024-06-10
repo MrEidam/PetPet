@@ -22,6 +22,8 @@ body{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
 }
 .item{
     /*border: red solid 2px;*/
@@ -32,12 +34,28 @@ body{
     margin: .5rem;
     gap: 10px;
     background: #222222cc;
+    height: 100px;
+    width: 100px;
+
 }
 main{
-    clip-path: polygon(20% 0, 80% 0, 100% 100%, 0 100%);
+    /*clip-path: polygon(20% 0, 80% 0, 100% 100%, 0 100%);*/
 }
-.Lime{color: lime;}
-.Yellow{color: yellow;}
-.Orange{color: orange;}
-.Red{color: red;}
-.DarkRed{color: darkred;}
+.Lime{color: lime;}.Yellow{color: yellow;}.Orange{color: orange;}.Red{color: red;}.DarkRed{color: darkred;}
+
+.cash{
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: #222222cc;
+    padding: .5rem;
+    border-radius: 0 0 1rem 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.cash img{
+    margin-right: .5rem;
+}

@@ -1,5 +1,6 @@
 const Dage = document.querySelector('#ageN');
 const Aimg = document.querySelector('#anim')
+const NameC = document.querySelector('#nameCa')
 
 const Djoy = document.querySelector('#joyN');
 const Dfood = document.querySelector('#fooN');
@@ -26,17 +27,17 @@ let attributes = {
     Name: [],
     Joy: {
         value: 10,
-        max: 100,
+        max: 306,
         min: -100,
     },
     Hunger: {
         value: 30,
-        max: 150,
+        max: 100,
         min: 0,
     },
     Clean: {
-        value: 50,
-        max: 100,
+        value: 50.6,
+        max: 253,
         min: 0,
     },
     Hp: {
@@ -59,12 +60,20 @@ let attributes = {
 window.addEventListener('load',() => {
     display();
     time();
-})
+});
 
-function toCPercen(num){//todo num => %
-    if(num>=90){
+function toCPercen(varr){//todo num => %
+    let num = Math.floor((varr.value/(varr.max/100))*10)/10;
+
+    if(num>100) num = 100;
+    if(num<varr.min){
+        num = varr.min;
+        varr.value = varr.min;
+    }
+
+    if(num>=80){
         return `<p class="Lime">${num}%</p>`;
-    }else if(num>=70){
+    }else if(num>=60){
         return `<p class="Yellow">${num}%</p>`;
     }else if(num>=40){
         return `<p class="Orange">${num}%</p>`;
@@ -79,20 +88,25 @@ function toCPercen(num){//todo num => %
 
 function display(){
     Dage.innerHTML = (attributes.Age.value);
-    Djoy.innerHTML = toCPercen(attributes.Joy.value);
-    Dfood.innerHTML = toCPercen(attributes.Hunger.value);
-    Dclean.innerHTML = toCPercen(attributes.Clean.value);
-    Dhealth.innerHTML = toCPercen(attributes.Hp.value);
+    Djoy.innerHTML = toCPercen(attributes.Joy);
+    Dfood.innerHTML = toCPercen(attributes.Hunger);
+    Dclean.innerHTML = toCPercen(attributes.Clean);
+    Dhealth.innerHTML = toCPercen(attributes.Hp);
 
     if(attributes.Age.value<=6){
+        NameC.innerHTML = `Junior`
         Aimg.src = imgTiger.Normal.tiger[0];
     }else if(attributes.Age.value<18){
+        NameC.innerHTML = `Teen`
         Aimg.src = imgTiger.Normal.tiger[1];
     }else if(attributes.Age.value<60){
+        NameC.innerHTML = `Adult`
         Aimg.src = imgTiger.Normal.tiger[2];
     }else if(attributes.Age.value<100){
+        NameC.innerHTML = `Senior`
         Aimg.src = imgTiger.Normal.tiger[3];
     }else{
+        NameC.innerHTML = `Dead`
         Aimg.src = imgTiger.Dead;
     }
 
@@ -100,9 +114,9 @@ function display(){
 }
 
 function play(){
-    if(attributes.Joy.value<98){
-        attributes.Joy.value += Math.floor(Math.random()*10);
-        attributes.Clean.value -= Math.floor(Math.random()*5); 
+    if(attributes.Joy.value<attributes.Joy.max){
+        attributes.Joy.value += Math.floor(Math.random()*20);
+        attributes.Clean.value -= Math.floor(Math.random()*8); 
     }else{
         attributes.Clean.value -= Math.floor(Math.random()*5);
     }
@@ -120,19 +134,24 @@ function feed(){
             attributes.Hp.value -= Math.floor(Math.random()*14);
         }
     }else{
-        attributes.attributes.Hp.value.value -= Math.floor(Math.random()*5);
+        attributes.Hp.value -= Math.floor(Math.random()*5);
         return;
     }
     display();
 }
 
 function clearBoy(){
-    console.log('sup');
-    if(attributes.Clean.value<100){
-        attributes.Clean.value += Math.floor(Math.random()*20);
-        attributes.Joy.value -= Math.floor(Math.random()*11);
+    if(attributes.Clean.value<attributes.Clean.max){
+        attributes.Clean.value += Math.floor(Math.random()*15);
+        attributes.Joy.value -= Math.floor(Math.random()*7);
     }
     display();
+}
+
+function hapiHeal(){
+    if(attributes.Hunger.value>(attributes.Hunger.max/100)*80 && attributes.Joy.value>(attributes.Joy.max/100)*80 && attributes.Clean.value>(attributes.Clean.max/100)*90 && attributes.Hp.value < attributes.Hp.max){
+        attributes.Hp.value += 0.1;
+    }
 }
 
 function time(){
@@ -140,12 +159,11 @@ function time(){
         if(attributes.Hunger.value>0) attributes.Hunger.value -= 3;
         if(attributes.Clean.value>0) attributes.Clean.value--;
         if(attributes.Joy.value>-100) attributes.Joy.value--;
-        if(attributes.Hp.value>0) attributes.Age.value+=0.5;
-        if((attributes.Hunger.value===0)&&(attributes.Hp.value!=0)) attributes.Hp.value -= 1.5
+        if(attributes.Hp.value>0) attributes.Age.value = (attributes.Age.value*10 + 1)/10;
+        if((attributes.Hunger.value<=0)&&(attributes.Hp.value!=0)) attributes.Hp.value -= 2
 
-        
+        hapiHeal();
         display();
-
 
 
         time();

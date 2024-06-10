@@ -9,27 +9,31 @@
     <title>PetPet</title>
 </head>
 <body>
+    <article class="cash">
+        <img src="./img/mone.png" style="height: 1rem;">
+        <p>Money: <span>0</span></p>
+    </article>
     <main>
         <div>
-            <h1><span>Junior</span>-<span>BOY</span></h1>
-            <p>Age: <span id="ageN">0</span></p>
+            <h1><span id="nameCa">Junior</span>-<span>BOY</span></h1>
+            <p>Age: <span id="ageN"></span></p>
             <img src="./img/tiger/baby.png" id="anim">
         </div>
         <div class="activ">
             <article class="item">
-                <p>Joy: <span id="joyN">0</span></p>
+                <p>Joy: <span id="joyN"></span></p>
                 <button onclick="play()">Play</button>
             </article>
             <article class="item">
-                <p>Food: <span id="fooN">0</span></p>
+                <p>Food: <span id="fooN"></span></p>
                 <button onclick="feed()">Feed</button>
             </article>
             <article class="item">
-                <p>Clean: <span id="cleN">0</span></p>
+                <p>Clean: <span id="cleN"></span></p>
                 <button onclick="clearBoy()">Clean</button>
             </article>
             <article class="item">
-                <p>Health: <span id="heaN">0</span></p>
+                <p>Health: <span id="heaN"></span></p>
                 <button>Heal</button>
             </article>
         </div>

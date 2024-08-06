@@ -29,6 +29,7 @@ let attributes = {
         value: 10,
         max: 306,
         min: -100,
+        abszero: 3.06,
     },
     Hunger: {
         value: 30,
@@ -55,6 +56,10 @@ let attributes = {
         max: 100,
         min: -100,
     }*/
+    Life: {
+        dead: 0,
+        away: 0,
+    }
 }
 
 window.addEventListener('load',() => {
@@ -107,10 +112,16 @@ function display(){
         Aimg.src = imgTiger.Normal.tiger[3];
     }else{
         NameC.innerHTML = `Dead`
+        attributes.Life.dead = 1;
+        btnHide();
         Aimg.src = imgTiger.Dead;
     }
 
-    if(attributes.Hp.value<=0) Aimg.src = imgTiger.Dead;
+    if(attributes.Hp.value<=0){
+        attributes.Life.dead = 1;
+        btnHide();
+        Aimg.src = imgTiger.Dead;
+    }
 }
 
 function play(){
@@ -154,18 +165,40 @@ function hapiHeal(){
     }
 }
 
-function time(){
-    setTimeout (() => {
+function btnHide(){
+    const actBTN = document.querySelectorAll('.actBTN');
+    actBTN.forEach((e) => {
+        e.style.display='none';
+    });
+}
+
+function sadDetection(){
+    if(attributes.Joy.value <= attributes.Joy.abszero){
+        if(Math.abs(attributes.Joy.value) >= Math.floor(Math.random()*100)){
+            attributes.Life.away = 1;
+            btnHide();
+        }
+    }
+}
+
+function addStuff(){
+    if(!attributes.Life.away && !attributes.Life.dead){
         if(attributes.Hunger.value>0) attributes.Hunger.value -= 3;
         if(attributes.Clean.value>0) attributes.Clean.value--;
         if(attributes.Joy.value>-100) attributes.Joy.value--;
         if(attributes.Hp.value>0) attributes.Age.value = (attributes.Age.value*10 + 1)/10;
         if((attributes.Hunger.value<=0)&&(attributes.Hp.value!=0)) attributes.Hp.value -= 2
+    }
+}
 
+function time(){
+    setTimeout (() => {
+        addStuff();
         hapiHeal();
+        sadDetection();
+        
+        
         display();
-
-
         time();
     },1000);
 }

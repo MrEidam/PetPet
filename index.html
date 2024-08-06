@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <link rel="shortcut icon" href="" type="image/x-icon">
+    <link rel="shortcut icon" href="./img/icon.png" type="image/x-icon">
     
     <title>PetPet</title>
 </head>
@@ -22,20 +22,28 @@
         <div class="activ">
             <article class="item">
                 <p>Joy: <span id="joyN"></span></p>
-                <button onclick="play()">Play</button>
+                <button class="actBTN" onclick="play()">Play</button>
             </article>
             <article class="item">
                 <p>Food: <span id="fooN"></span></p>
-                <button onclick="feed()">Feed</button>
+                <button class="actBTN" onclick="feed()">Feed</button>
             </article>
             <article class="item">
                 <p>Clean: <span id="cleN"></span></p>
-                <button onclick="clearBoy()">Clean</button>
+                <button class="actBTN" onclick="clearBoy()">Clean</button>
             </article>
             <article class="item">
                 <p>Health: <span id="heaN"></span></p>
-                <button>Heal</button>
+                <button class="actBTN" onclick="">Heal</button>
             </article>
+        </div>
+        <div class="games">
+            <img class="gamesPromo" src="./img/promorighth.png" alt="Promo for Games">
+            <div class="gamesText">
+                <h2>Games</h2>
+                <a href="./Games/">Let's go!</a>
+            </div>
+            <img class="gamesPromo" src="./img/promoleflt.png" alt="Promo for Games">
         </div>
     </main>
     <script src="main.js"></script>

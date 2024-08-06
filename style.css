@@ -9,14 +9,32 @@ body{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
-    background: #333;
+    min-height: 100vh;/*
+    background: #333;*/
+    background-image: url("./img/pc.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
     color: #fff;
 }
+
+img{
+    aspect-ratio: 1/1;
+    object-fit: contain;
+}
+
+main{
+    /*clip-path: polygon(20% 0, 80% 0, 100% 100%, 0 100%);*/
+    background: #333333aa;
+    padding: 1rem;
+    border-radius: 20px;
+}
+
 #anim{
     width: 200px;
-    aspect-ratio: 1/1;
+    margin-top: 1rem;
 }
+
 .activ{
     margin-top: 1rem;
     display: flex;
@@ -25,22 +43,56 @@ body{
     justify-content: center;
     align-items: center;
 }
+
 .item{
     /*border: red solid 2px;*/
     border-radius: .5rem;
     display: flex;
     flex-direction: column;
+    justify-content: space-around;
     padding: 1rem;
     margin: .5rem;
     gap: 10px;
     background: #222222cc;
     height: 100px;
     width: 100px;
+}
 
+span p{
+    font-size: 20px;
+    /*-webkit-text-stroke: 0.5px #999999cc;*/
+    text-decoration: solid;
+    filter: drop-shadow(1.5px 1.5px 6px #aaa);
 }
-main{
-    /*clip-path: polygon(20% 0, 80% 0, 100% 100%, 0 100%);*/
+
+.games{
+    border-radius: .5rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 1rem;
+    margin: .5rem;
+    background: #222222cc;
+    height: 80px;
 }
+.gamesPromo{
+    width: 69px; /* Mobile */
+    height: 48px;
+}
+.gamesText{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.gamesText a{
+    color: red;
+}
+
+
+.actBTN{
+    display: block;
+}
+
 .Lime{color: lime;}.Yellow{color: yellow;}.Orange{color: orange;}.Red{color: red;}.DarkRed{color: darkred;}
 
 .cash{
@@ -58,4 +110,13 @@ main{
 
 .cash img{
     margin-right: .5rem;
+}
+
+@media screen and (max-width: 500px){
+    body{
+        background-image: url("./img/mobile.jpg");
+    }
+    main{
+        border-radius: 0;
+    }
 }

@@ -1,0 +1,85 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+}
+
+hr{
+    width: 500px;
+}
+
+#board{
+    width: 400px;
+    height: 400px;
+
+    background: #cdc1d5;
+    border: 6px solid #bbada0;
+
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.tile{
+    width: 90px;
+    height: 90px;
+    border: 5px solid #bbada0;
+
+    font-size: 40px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.x2{
+    background: #eee4da;
+    color: #757371;
+}
+.x4{
+    background: #ece0ca;
+    color: #757371;
+}
+.x8{
+    background: #f4b17a;
+    color: #fff;
+}
+.x16{
+    background: #f59575;
+    color: #fff;
+}
+.x32{
+    background: #f57c5f;
+    color: #fff;
+}
+.x64{
+    background: #f65d3b;
+    color: #fff;
+}
+.x128{
+    background: #edce71;
+    color: #fff;
+}
+.x256{
+    background: #edcc63;
+    color: #fff;
+}
+.x512{
+    background: #edc651;
+    color: #fff;
+}
+.x1024{
+    background: #eec744;
+    color: #fff;
+}
+.x2048{
+    background: #ecc230;
+    color: #fff;
+}
+.x4096{
+    background: #fe3d3d;
+    color: #fff;
+}
+.x8192{
+    background: #ff2020;
+    color: #fff;
+}

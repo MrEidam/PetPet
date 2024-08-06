@@ -1,0 +1,33 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+}
+
+img{
+    aspect-ratio: 1/1;
+}
+
+#opponent-choice{
+    width: 240px;
+    height: 240px;
+    /*background: #fcda45;*/
+    margin-top: 10px;
+}
+#your-choice{
+    width: 240px;
+    height: 240px;
+    /*background: #4fdc5e;*/
+    margin-top: 10px;
+}
+#choices{
+    width: 240px;
+    height: 80px;
+    /*background: #f4a478;*/
+    margin: 0 auto;
+    margin-top: 10px;
+}
+
+#choices img{
+    width: 80px;
+    height: 80px;
+}

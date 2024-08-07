@@ -3,6 +3,7 @@
     margin: 0;
     box-sizing: border-box;
     transition: .5s;
+    user-select: none;
 }
 
 body{

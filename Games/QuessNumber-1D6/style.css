@@ -1,0 +1,51 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+}
+
+img{
+    width: 100px;
+    height: 100px;
+    margin: 1.25rem;
+}
+
+.ques{
+    display: flex;
+    flex-direction: row;
+}
+.ques p{
+    margin-right: .5rem;
+}
+.ques select{
+    border: none;
+    border-radius: 7px;
+}
+
+button{
+    text-transform: uppercase;
+    height: 69px;
+    width: 69px;
+    margin-top: 1rem;
+    border-radius: 10px;
+    border: none;
+}
+
+.won{
+    color: lime;/*
+    text-transform: uppercase;*/
+}
+.lose{
+    color: red;/*
+    text-transform: uppercase;*/
+}

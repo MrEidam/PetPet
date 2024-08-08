@@ -1,6 +1,22 @@
-body{
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
     font-family: Arial, Helvetica, sans-serif;
     text-align: center;
+    /*border: red 5px solid;*/
+}
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    min-height: 100vh;
+    background: #333;
+    background-image: url('./pc.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
 }
 
 hr{
@@ -8,8 +24,8 @@ hr{
 }
 
 #board{
-    width: 400px;
-    height: 400px;
+    width: 372px;
+    height: 372px;
 
     background: #cdc1d5;
     border: 6px solid #bbada0;
@@ -29,6 +45,46 @@ hr{
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.arrowBack{
+    height: 90px;
+    width: 372px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 1rem;
+}
+
+.arrows{
+    height: 90px;
+    width: 90px;
+    border: none;
+    border-radius: 50%;
+}
+
+@media screen and (max-width: 500px){
+    body{
+        background-image: url("./mobile.jpg");
+    }
+    #board{
+        width: 246px;
+        height: 246px;
+        border: 3px solid #bbada0;
+    }
+    .tile{
+        height: 60px;
+        width: 60px;
+        border: 3px solid #bbada0;
+    }
+    .arrowBack{
+        height: 60px;
+        width: 246px;
+    }
+    .arrows{
+        height: 60px;
+        width: 60px;
+    }
 }
 
 .x2{

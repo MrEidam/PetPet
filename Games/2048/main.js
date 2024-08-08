@@ -187,3 +187,23 @@ function hasEmptyTile() {
     }
     return false;
 }
+
+function left(){
+    slideLeft();
+    setTwo();
+}
+
+function up(){
+    slideUp();
+    setTwo();
+}
+
+function down(){
+    slideDown();
+    setTwo();
+}
+
+function right(){
+    slideRight();
+    setTwo();
+}

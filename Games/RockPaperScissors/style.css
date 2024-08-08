@@ -16,6 +16,11 @@ body{
     align-items: center;
     min-height: 100vh;
     color: #fff;
+    background-image: url('./pc.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    transition: 0s;
 }
 
 img{
@@ -27,16 +32,12 @@ h1{
     filter: drop-shadow(1.5px 1.5px 6px #aaa);
 }
 #opponent-choice{
-    width: 240px;
-    height: 240px;
     /*background: #fcda45;*/
-    margin-top: 10px;
+    margin-top: /*1*/0px;
 }
 #your-choice{
-    width: 240px;
-    height: 240px;
     /*background: #4fdc5e;*/
-    margin-top: 10px;
+    margin-top: 20px;
 }
 #choices{
     width: 240px;
@@ -49,4 +50,34 @@ h1{
 #choices img{
     width: 80px;
     height: 80px;
+}
+
+.choiBACK{
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    backdrop-filter: blur(5px);
+    border-radius: 50px;
+    box-shadow:
+        inset 10px 10px 20px #fff,
+        10px 10px 20px #333;
+}
+
+.choices{
+    width: 240px;
+    height: 240px;
+    border-radius: 25px;
+}
+
+@media screen and (max-width: 500px){
+    body{
+        background-image: url("./mobile.jpg");
+    }
+    .choices{
+        width: 180px;
+        height: 180px;
+    }
+    .choiBACK{
+
+    }
 }

@@ -6,11 +6,10 @@
 }
 body{
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;/*
-    background: #333;*/
+    min-height: 100vh;
+    background: #333;
     background-image: url("./img/pc.jpg");
     background-repeat: no-repeat;
     background-position: center;

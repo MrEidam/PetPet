@@ -191,19 +191,23 @@ function hasEmptyTile() {
 function left(){
     slideLeft();
     setTwo();
+    document.getElementById("score").innerText = score;
 }
 
 function up(){
     slideUp();
     setTwo();
+    document.getElementById("score").innerText = score;
 }
 
 function down(){
     slideDown();
     setTwo();
+    document.getElementById("score").innerText = score;
 }
 
 function right(){
     slideRight();
     setTwo();
+    document.getElementById("score").innerText = score;
 }

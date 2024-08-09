@@ -35,17 +35,36 @@ hr{
     flex-wrap: wrap;
 }
 
-.tile{
+.tile {
+    position: relative;
+
     width: 90px;
     height: 90px;
     border: 5px solid #bbada0;
 
     font-size: 40px;
     font-weight: bold;
+
     display: flex;
     justify-content: center;
     align-items: center;
+
+    transition: transform 0.15s ease-in-out, background-color 0.15s ease-in-out; /* Add smooth transitions */
 }
+
+.tile.new-tile {
+    animation: pop 0.2s ease-in-out;
+}
+
+@keyframes pop {
+    0% {
+        transform: scale(0.5);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
 
 .arrowBack{
     height: 90px;

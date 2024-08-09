@@ -50,27 +50,6 @@ function updateTile(tile, num) {
     }
 }
 
-document.addEventListener('keyup', (e) => {
-    if (e.code == "ArrowLeft") {
-        slideLeft();
-        setTwo();
-    }
-    else if (e.code == "ArrowRight") {
-        slideRight();
-        setTwo();
-    }
-    else if (e.code == "ArrowUp") {
-        slideUp();
-        setTwo();
-
-    }
-    else if (e.code == "ArrowDown") {
-        slideDown();
-        setTwo();
-    }
-    document.getElementById("score").innerText = score;
-});
-
 function filterZero(row){
     return row.filter(num => num != 0); //cteare a new array without 0
 }
@@ -93,6 +72,15 @@ function slide(row) {
     return row;
 }
 
+document.addEventListener('keyup', (e) => {
+    switch (e.code) {
+        case "ArrowLeft": slideLeft(); setTwo(); break;
+        case "ArrowRight": slideRight(); setTwo(); break;
+        case "ArrowUp": slideUp(); setTwo(); break;
+        case "ArrowDown": slideDown(); setTwo(); break;
+    }
+    document.getElementById("score").innerText = score;
+});
 
 function slideLeft() {
     for (let r = 0; r < rows; r++) {
@@ -171,6 +159,7 @@ function setTwo() {
             let tile = document.getElementById(r.toString() + "-" + c.toString());
             tile.innerText = "2";
             tile.classList.add("x2");
+            tile.classList.add("new-tile");
             found = true;
         }
     }

@@ -22,18 +22,31 @@ img{
     width: 100px;
     height: 100px;
     margin: 1.25rem;
+    border-radius: 15px;
+    filter: drop-shadow(1.5px 1.5px 6px #aaa);
 }
-
+h1{
+    filter: drop-shadow(1.5px 1.5px 6px #333);
+}
+h3{
+    filter: drop-shadow(1.5px 1.5px 6px #333);
+}
 .ques{
     display: flex;
     flex-direction: row;
 }
 .ques p{
     margin-right: .5rem;
+    filter: drop-shadow(1.5px 1.5px 6px #333);
 }
 .ques select{
     border: none;
+    background: none;
     border-radius: 7px;
+    backdrop-filter: blur(10px);
+    box-shadow:
+        inset 1.5px 1.5px 3px #fff,
+        10px 10px 20px #333;
 }
 
 button{
@@ -43,8 +56,18 @@ button{
     margin-top: 1rem;
     border-radius: 10px;
     border: none;
+    background: none;
+    color: #fff;
+    text-shadow: 2px 2px 2.5px #333;
+    /*filter: drop-shadow(10px 10px 20px #333);*/
+    backdrop-filter: blur(10px);
+    box-shadow:
+        inset 2.5px 2.5px 5px #fff,
+        10px 10px 20px #333;
 }
-
+.que{
+    margin-right: 1rem;
+}
 .won{
     color: lime;/*
     text-transform: uppercase;*/

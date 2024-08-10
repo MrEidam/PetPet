@@ -19,10 +19,6 @@ body{
     background-size: cover;
 }
 
-hr{
-    width: 500px;
-}
-
 #board{
     width: 372px;
     height: 372px;
@@ -35,7 +31,7 @@ hr{
     flex-wrap: wrap;
 }
 
-.tile {
+.tile{
     position: relative;
 
     width: 90px;
@@ -52,34 +48,17 @@ hr{
     transition: transform 0.15s ease-in-out, background-color 0.15s ease-in-out; /* Add smooth transitions */
 }
 
-.tile.new-tile {
+.tile.new-tile{
     animation: pop 0.2s ease-in-out;
 }
 
-@keyframes pop {
-    0% {
+@keyframes pop{
+    0%{
         transform: scale(0.5);
     }
-    100% {
+    100%{
         transform: scale(1);
     }
-}
-
-
-.arrowBack{
-    height: 90px;
-    width: 372px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    margin-top: 1rem;
-}
-
-.arrows{
-    height: 90px;
-    width: 90px;
-    border: none;
-    border-radius: 50%;
 }
 
 @media screen and (max-width: 500px){
@@ -95,14 +74,6 @@ hr{
         height: 60px;
         width: 60px;
         border: 3px solid #bbada0;
-    }
-    .arrowBack{
-        height: 60px;
-        width: 246px;
-    }
-    .arrows{
-        height: 60px;
-        width: 60px;
     }
 }
 

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="./icon.png" type="image/x-icon">
+
+    <title>Dice War</title>
+</head>
+<body>
+    <article>
+        <div style="--clr: #cd2525;">
+            <section>
+                <img src="./Dices/7.png" alt="Enemy Dice" id="enDice1">
+                <img src="./Dices/7.png" alt="Enemy Dice" id="enDice2">
+                <img src="./Dices/7.png" alt="Enemy Dice" id="enDice3">
+                <img src="./Dices/7.png" alt="Enemy Dice" id="enDice4">
+                <img src="./Dices/7.png" alt="Enemy Dice" id="enDice5">
+            </section>
+            <h2>Enemy score: <span id="enemyScore">0</span></h2>
+        </div>
+        <div style="--clr: #2525cd;">
+            <h2>Your score: <span id="playerScore">0</span></h2>
+            <section>
+                <img src="./Dices/7.png" alt="Player Dice" id="plDice1">
+                <img src="./Dices/7.png" alt="Player Dice" id="plDice2">
+                <img src="./Dices/7.png" alt="Player Dice" id="plDice3">
+                <img src="./Dices/7.png" alt="Player Dice" id="plDice4">
+                <img src="./Dices/7.png" alt="Player Dice" id="plDice5">
+            </section>
+            <main>
+                <h3>Do you think that you have <select id="choice"><option value="1">more</option><option value="2">less</option></select> score then the Enemy?</h3>
+                <button onclick="gamble()">Let's find out!</button>
+            </main>
+        </div>
+    </article>
+    <script src="main.js"></script>
+</body>
+</html>

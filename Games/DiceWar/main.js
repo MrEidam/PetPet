@@ -53,16 +53,46 @@ function playerRoll(){
     plaScore.innerHTML = playerScore;
 }
 
+async function won(){
+    let won = document.createElement('h1');
+    won.classList.add('result', 'won');
+    won.innerText = "You've won!";
+    document.body.append(won);
+    setTimeout(() => {
+        won.remove();
+    }, 600);
+}
+
+async function lost(){
+    let lost = document.createElement('h1');
+    lost.classList.add('result', 'lost');
+    lost.innerText = "You've lost!";
+    document.body.append(lost);
+    setTimeout(() => {
+        lost.remove();
+    }, 600);
+}
+
+async function draw(){
+    let draw = document.createElement('h1');
+    draw.classList.add('result', 'draw');
+    draw.innerText = "It's a draw!";
+    document.body.append(draw);
+    setTimeout(() => {
+        draw.remove();
+    }, 600);
+}
+
 function gamble(){
     enemyRoll();
     playerRoll();
     setTimeout(() => {
         if(playerScore>enemyScore){
-            alert('You won!');
+            won();
         }else if(playerScore<enemyScore){
-            alert(`You've lost`);
+            lost();
         }else{
-            alert('Draw');
+            draw();
             console.log(`Player: ${playerScore}`);
             console.log(`Enemy: ${enemyScore}`);
         }

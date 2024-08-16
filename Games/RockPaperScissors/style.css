@@ -39,12 +39,22 @@ h1{
     /*background: #4fdc5e;*/
     margin-top: 20px;
 }
+section{
+    backdrop-filter: blur(5px);
+    border-radius: 50px;
+    box-shadow:
+        inset 10px 10px 20px #fff,
+        10px 10px 20px #333;
+}
 #choices{
-    width: 240px;
-    height: 80px;
+    width: 304px;
+    height: 90px;
     /*background: #f4a478;*/
+    border-top: 2.5px #000000cc solid;
     margin: 0 auto;
-    margin-top: 10px;
+    border-radius: 30px;
+    display: flex;
+    justify-content: space-around;
 }
 
 #choices img{
@@ -56,17 +66,21 @@ h1{
     padding: 2rem;
     display: flex;
     flex-direction: column;
-    backdrop-filter: blur(5px);
-    border-radius: 50px;
-    box-shadow:
-        inset 10px 10px 20px #fff,
-        10px 10px 20px #333;
 }
 
 .choices{
     width: 240px;
     height: 240px;
     border-radius: 25px;
+}
+
+@keyframes pop{
+    0%{
+        transform: scale(0.5);
+    }
+    100%{
+        transform: scale(1);
+    }
 }
 
 @media screen and (max-width: 500px){
@@ -76,8 +90,5 @@ h1{
     .choices{
         width: 180px;
         height: 180px;
-    }
-    .choiBACK{
-
     }
 }

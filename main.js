@@ -20,7 +20,8 @@ const imgTiger = {
     ////Summer: {},
     ////Fall: {},
     ////Winter: {},
-    Dead: './img/dead/tiger.png'
+    Dead: './img/dead/tiger.png',
+    Gone: './img/gone/tiger.png'
 }
 
 let attributes = {
@@ -99,28 +100,35 @@ function display(){
     Dhealth.innerHTML = toCPercen(attributes.Hp);
 
     if(attributes.Age.value<=6){
-        NameC.innerHTML = `Junior`
+        NameC.innerHTML = `Junior`;
         Aimg.src = imgTiger.Normal.tiger[0];
     }else if(attributes.Age.value<18){
-        NameC.innerHTML = `Teen`
+        NameC.innerHTML = `Teen`;
         Aimg.src = imgTiger.Normal.tiger[1];
     }else if(attributes.Age.value<60){
-        NameC.innerHTML = `Adult`
+        NameC.innerHTML = `Adult`;
         Aimg.src = imgTiger.Normal.tiger[2];
     }else if(attributes.Age.value<100){
-        NameC.innerHTML = `Senior`
+        NameC.innerHTML = `Senior`;
         Aimg.src = imgTiger.Normal.tiger[3];
     }else{
-        NameC.innerHTML = `Dead`
+        NameC.innerHTML = `Dead`;
         attributes.Life.dead = 1;
         btnHide();
         Aimg.src = imgTiger.Dead;
     }
 
     if(attributes.Hp.value<=0){
+        NameC.innerHTML = `Dead`;
         attributes.Life.dead = 1;
         btnHide();
         Aimg.src = imgTiger.Dead;
+    }
+
+    if(attributes.Life.away){
+        NameC.innerHTML = `Gone`;
+        btnHide();
+        Aimg.src = imgTiger.Gone;
     }
 }
 
@@ -173,10 +181,9 @@ function btnHide(){
 }
 
 function sadDetection(){
-    if(attributes.Joy.value <= attributes.Joy.abszero){
+    if((attributes.Joy.value <= attributes.Joy.abszero)&&(attributes.Joy.value<0)){
         if(Math.abs(attributes.Joy.value) >= Math.floor(Math.random()*100)){
             attributes.Life.away = 1;
-            btnHide();
         }
     }
 }

@@ -11,6 +11,7 @@ window.onload = () => {
         let choice = document.createElement("img");
         choice.id = choices[i];
         choice.src = `${choices[i]}.png`;
+        choice.setAttribute("draggable", "false");
         choice.addEventListener("click", selectChoice);
         document.getElementById("choices").append(choice);
     }

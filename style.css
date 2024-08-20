@@ -92,7 +92,7 @@ span p{
     display: block;
 }
 
-.Lime{color: lime;}.Yellow{color: yellow;}.Orange{color: orange;}.Red{color: red;}.DarkRed{color: darkred;}
+.Lime{color: lime; user-select: none;}.Yellow{color: yellow; user-select: none;}.Orange{color: orange; user-select: none;}.Red{color: red; user-select: none;}.DarkRed{color: darkred; user-select: none;}
 
 .cash{
     position: absolute;

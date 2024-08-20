@@ -19,6 +19,16 @@ body{
     background-size: cover;
 }
 
+#home{
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    height: 50px;
+    width: 50px;
+    border-radius: 25px 0 0 0;
+    background: #555;
+}
+
 #board{
     width: 372px;
     height: 372px;

@@ -23,6 +23,16 @@ body{
     transition: 0s;
 }
 
+#home{
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    height: 50px;
+    width: 50px;
+    border-radius: 25px 0 0 0;
+    background: #555;
+}
+
 img{
     aspect-ratio: 1/1;
     object-fit: contain;
@@ -88,7 +98,18 @@ section{
         background-image: url("./mobile.jpg");
     }
     .choices{
-        width: 180px;
-        height: 180px;
+        width: 169px;
+        height: 159px;
+    }
+    #choices{
+        width: 233px;
+        height: 79px;
+    }
+    #your-choice{
+        margin-top: 10px;
+    }
+    #choices img{
+        width: 69px;
+        aspect-ratio: 1;
     }
 }

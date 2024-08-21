@@ -18,7 +18,7 @@ window.onload = () => {
     for(let i=0; i<games.length; i++){
         document.body.innerHTML += `
         <a href="./${games[i].link}" class="game">
-            <img src="./img/${games[i].link}.png" alt="${games[i].name}">
+            <img src="./${games[i].link}/icon.png" alt="${games[i].name}">
         </a>`
     }
 }

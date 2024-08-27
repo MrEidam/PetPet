@@ -29,6 +29,17 @@ body{
     background: #555;
 }
 
+#reset{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    height: 50px;
+    width: 50px;
+    border-radius: 0 25px 0 0;
+    background: #d55;
+    border: none;
+}
+
 #board{
     width: 372px;
     height: 372px;
@@ -36,7 +47,6 @@ body{
     background: #cdc1d5;
     border: 6px solid #bbada0;
 
-    margin: 0 auto;
     display: flex;
     flex-wrap: wrap;
 }

@@ -1,7 +1,13 @@
 var board;
+const newBoard = [
+    [0,0,0,0],
+    [0,0,0,0],
+    [0,0,0,0],
+    [0,0,0,0],
+];
 var score = 0;
-var rows = 4;
-var columns = 4;
+const rows = 4;
+const columns = 4;
 let startX, startY, endX, endY;
 
 window.onload = function(){
@@ -216,4 +222,13 @@ function handleSwipe(){
             document.getElementById("score").innerText = score;
         }
     }
+}
+async function reset(){
+    document.getElementById("board").innerHTML = '';
+    setGame();
+    score = 0;
+    document.querySelector('#score').innerText = '0';
+    /*board = newBoard;
+    setTwo();
+    setTwo();*/
 }

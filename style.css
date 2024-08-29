@@ -32,6 +32,7 @@ main{
 #anim{
     width: 200px;
     margin-top: 1rem;
+    filter: drop-shadow(2px 2px 5px #aaaaaaaa);
 }
 
 .activ{
@@ -48,6 +49,7 @@ main{
     border-radius: .5rem;
     display: flex;
     flex-direction: column;
+    align-items: center;
     justify-content: space-around;
     padding: 1rem;
     margin: .5rem;
@@ -90,6 +92,22 @@ span p{
 
 .actBTN{
     display: block;
+    border: none;
+    height: 20px;
+    width: 50px;
+    text-align: center;
+    border-radius: 5px;
+    color: #fff;
+    background: #666666aa;
+    box-shadow: 
+        inset 5px 5px 15px #777,
+        5px 5px 15px #555;
+    cursor: pointer;
+    transition: .5s;
+}
+.actBTN:hover{
+    background-color: #3c3;
+    transition: .1s;
 }
 
 .Lime{color: lime; user-select: none;}.Yellow{color: yellow; user-select: none;}.Orange{color: orange; user-select: none;}.Red{color: red; user-select: none;}.DarkRed{color: darkred; user-select: none;}

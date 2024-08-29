@@ -209,3 +209,12 @@ function time(){
         time();
     },1000);
 }
+
+function debug(){
+    attributes.Clean.value = Infinity;
+    attributes.Hp.value = Infinity;
+    attributes.Hunger.value = Infinity;
+    attributes.Joy.value = Infinity;
+    attributes.Age.max = Infinity
+    display();
+}

@@ -11,36 +11,43 @@ const columns = 4;
 let startX, startY, endX, endY;
 
 window.onload = function(){
-    setGame();
+    if(loadBoard()){
+        setGame();
+    }else{
+        reset();
+    }
+}
+
+function loadBoard(){
+    const boardString = localStorage.getItem('PetPet-2048-board'); // Retrieve the JSON string from local storage
+    return boardString ? JSON.parse(boardString) : null; // Parse the JSON string back into an array
 }
 
 function setGame(){
+    const loadedBoard = loadBoard();
 
-    board = [
-        [0,0,0,0],
-        [0,0,0,0],
-        [0,0,0,0],
-        [0,0,0,0],
-    ];
+    if(loadedBoard){
+        board = loadedBoard;
+    }else{
+        board = [
+            [0, 0, 0, 0],
+            [0, 0, 0, 0],
+            [0, 0, 0, 0],
+            [0, 0, 0, 0],
+        ];
+        setTwo();
+        setTwo();
+    }
 
-    /*board = [
-        [2,2,2,2],
-        [2,2,2,2],
-        [4,4,8,8],
-        [4,4,8,8],
-    ];*/
-
-    for(let r=0;r<rows;r++){
-        for(let c=0;c<columns;c++){
+    for(let r = 0; r < rows; r++){
+        for(let c = 0; c < columns; c++){
             let tile = document.createElement("div");
             tile.id = r.toString() + "-" + c.toString();
             let num = board[r][c];
-            updateTile(tile,num);
+            updateTile(tile, num);
             document.getElementById("board").append(tile);
         }
     }
-    setTwo();
-    setTwo();
 }
 
 function updateTile(tile, num){
@@ -81,10 +88,10 @@ function slide(row){
 
 document.addEventListener('keyup', (e) => {
     switch(e.code){
-        case "ArrowLeft": slideLeft(); setTwo(); break;
-        case "ArrowRight": slideRight(); setTwo(); break;
-        case "ArrowUp": slideUp(); setTwo(); break;
-        case "ArrowDown": slideDown(); setTwo(); break;
+        case "ArrowLeft": slideLeft(); setTwo(); saveBoard(); break;
+        case "ArrowRight": slideRight(); setTwo(); saveBoard(); break;
+        case "ArrowUp": slideUp(); setTwo(); saveBoard(); break;
+        case "ArrowDown": slideDown(); setTwo(); saveBoard(); break;
     }
     document.getElementById("score").innerText = score;
 });
@@ -195,6 +202,10 @@ document.addEventListener('touchend', function(e){
     handleSwipe();
 }, {passive: true});
 
+function saveBoard(){
+    localStorage.setItem('PetPet-2048-board', JSON.stringify(board));
+}
+
 function handleSwipe(){
     let diffX = endX - startX;
     let diffY = endY - startY;
@@ -205,30 +216,45 @@ function handleSwipe(){
         if(diffX > 0){  //? Right
             slideRight();
             setTwo();
+            saveBoard();
             document.getElementById("score").innerText = score;
         }else{          //? Left
             slideLeft();
             setTwo();
+            saveBoard();
             document.getElementById("score").innerText = score;
         }
     }else{ //- Vertical swipe
         if(diffY > 0){  //? Down
             slideDown();
             setTwo();
+            saveBoard();
             document.getElementById("score").innerText = score;
         }else{          //? Up
             slideUp();
             setTwo();
+            saveBoard();
             document.getElementById("score").innerText = score;
         }
     }
 }
+
 async function reset(){
-    document.getElementById("board").innerHTML = '';
-    setGame();
+    document.getElementById("board").innerHTML = ''; 
     score = 0;
     document.querySelector('#score').innerText = '0';
-    /*board = newBoard;
+
+    // Reset the board to newBoard and save it to localStorage
+    board = newBoard.map(row => [...row]); // Create a fresh copy of newBoard
+    localStorage.setItem('PetPet-2048-board', JSON.stringify(board)); // Save the fresh copy to localStorage
+
+    // Call setGame() to reinitialize the board in the DOM
+    setGame();
+
+    // Generate two initial "2" tiles after the board is rendered
     setTwo();
-    setTwo();*/
+    setTwo();
+
+    // Save updated board with "2" tiles
+    saveBoard();
 }

@@ -24,7 +24,7 @@ body{
     background: #555;
 }
 
-img{
+.dice{
     width: 100px;
     height: 100px;
     margin: 1rem;
@@ -52,7 +52,7 @@ button{
     background: darkblue;
     color: #fff;
 }
-img.pop{
+.dice.pop{
     animation: pop 0.2s ease-in-out;
 }
 
@@ -95,7 +95,7 @@ img.pop{
 
 
 @media screen and (max-width: 500px){
-    img{
+    .dice{
         width: 40px;
         height: 40px;
         margin: .60rem;
@@ -103,5 +103,48 @@ img.pop{
     }
     .result{
         font-size: 69px;
+    }
+}
+
+.cash{
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: #222222cc;
+    padding: .5rem;
+    border-radius: 0 0 1rem 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.cash img{
+    margin-right: .5rem;
+    aspect-ratio: 1/1;
+    object-fit: contain;
+}
+
+.coins{
+    position: absolute;
+    color: red;
+    z-index: 5;
+    user-select: none;
+    left: 135px;
+    top: 17px;
+    transform: translate(-50%, -50%);
+    animation: money .15s ease-in;
+}
+
+@keyframes money{
+    from{
+        transform: translate(-50%, -50%);
+        opacity: 1;
+        top: 17px;
+    }
+    to{
+        transform: translate(-50%, -50%);
+        opacity: 0;
+        top: -10px;
     }
 }

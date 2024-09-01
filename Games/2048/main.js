@@ -10,6 +10,25 @@ const rows = 4;
 const columns = 4;
 let startX, startY, endX, endY;
 
+let money = 0;
+
+async function display(){
+    let moneyDisplay = document.querySelector('#money');
+    moneyDisplay.innerHTML = money;
+}
+
+async function nft(amount){ //! MONEY POPPING
+    let dabloons = document.createElement('h4');
+    dabloons.classList.add('coins');
+    dabloons.innerHTML = `+${amount}`;
+    document.body.append(dabloons);
+    money += amount;
+    display();
+    setTimeout(() => {
+        dabloons.remove();
+    }, 150);
+}
+
 window.onload = function(){
     if(loadBoard()){
         setGame();
@@ -76,6 +95,7 @@ function slide(row){
             row[i] *= 2;
             row[i+1] = 0;
             score += row[i];
+            nft(row[i]);
         }
     } //[4, 0, 2]
     row = filterZero(row); //[4, 2]

@@ -84,11 +84,11 @@ function toCPercen(varr){//todo num => %
     }else if(num>=40){
         return `<p class="Orange">${num}%</p>`;
     }else if(num>=20){
-        return `<p class="Red">${num}%</p>`;
+        return `<p class="DarkOrange">${num}%</p>`;
     }else if(num>=0){
-        return `<p class="DarkRed">${num}%</p>`;
+        return `<p class="Red">${num}%</p>`;
     }else if(num<0){
-        return `<p class="DarkRed">${num}%</p>`;
+        return `<p class="Red">${num}%</p>`;
     }
 }
 

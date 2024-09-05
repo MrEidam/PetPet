@@ -18,7 +18,7 @@ async function nft(amount){ //! MONEY POPPING
     display();
     setTimeout(() => {
         dabloons.remove();
-    }, 500);
+    }, 150);
 }
 
 async function correct(){

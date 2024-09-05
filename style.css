@@ -110,7 +110,7 @@ span p{
     transition: .1s;
 }
 
-.Lime{color: lime; user-select: none;}.Yellow{color: yellow; user-select: none;}.Orange{color: orange; user-select: none;}.Red{color: red; user-select: none;}.DarkRed{color: darkred; user-select: none;}
+.Lime{color: lime; user-select: none;}.Yellow{color: yellow; user-select: none;}.Orange{color: #ffa500; user-select: none;}.Red{color: red; user-select: none;}.DarkOrange{color: #ff5500; user-select: none;}
 
 .cash{
     position: absolute;

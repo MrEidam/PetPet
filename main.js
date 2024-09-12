@@ -110,16 +110,16 @@ function display(){
 
     if(attributes.Age.value<=6){
         NameC.innerHTML = `Junior`;
-        Aimg.src = animalImage.animal.age[0];
+        Aimg.src = animalImage.animal.Normal.age[0];
     }else if(attributes.Age.value<18){
         NameC.innerHTML = `Teen`;
-        Aimg.src = animalImage.animal.age[1];
+        Aimg.src = animalImage.animal.Normal.age[1];
     }else if(attributes.Age.value<60){
         NameC.innerHTML = `Adult`;
-        Aimg.src = animalImage.animal.age[2];
+        Aimg.src = animalImage.animal.Normal.age[2];
     }else if(attributes.Age.value<100){
         NameC.innerHTML = `Senior`;
-        Aimg.src = animalImage.animal.age[3];
+        Aimg.src = animalImage.animal.Normal.age[3];
     }else{
         NameC.innerHTML = `Dead`;
         attributes.Life.dead = 1;

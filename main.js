@@ -24,11 +24,6 @@ const animalImage = {
         Dead: `./img/dead/${chosenAnimal}.png`,
         Gone: `./img/gone/${chosenAnimal}.png`
     }
-    
-    ////Spring: {},
-    ////Summer: {},
-    ////Fall: {},
-    ////Winter: {},
 }
 
 let attributes = {
@@ -122,10 +117,10 @@ function toCPercen(varr){
 }
 
 function display(){
-    Dage.innerHTML = (attributes.Age.value);
-    Djoy.innerHTML = toCPercen(attributes.Joy);
-    Dfood.innerHTML = toCPercen(attributes.Hunger);
-    Dclean.innerHTML = toCPercen(attributes.Clean);
+    Dage.innerHTML    = (attributes.Age.value);
+    Djoy.innerHTML    = toCPercen(attributes.Joy);
+    Dfood.innerHTML   = toCPercen(attributes.Hunger);
+    Dclean.innerHTML  = toCPercen(attributes.Clean);
     Dhealth.innerHTML = toCPercen(attributes.Hp);
 
     if(attributes.Age.value<=6){
@@ -137,7 +132,7 @@ function display(){
     }else if(attributes.Age.value<60){
         NameC.innerHTML = `Adult`;
         Aimg.src = animalImage.animal.Normal.age[2];
-    }else if(attributes.Age.value<100){
+    }else if(attributes.Age.value<attributes.Age.max){
         NameC.innerHTML = `Senior`;
         Aimg.src = animalImage.animal.Normal.age[3];
     }else{
@@ -194,6 +189,10 @@ function clearBoy(){
         attributes.Joy.value -= Math.floor(Math.random()*7);
     }
     display();
+}
+
+function healBoy(){
+    alert('Not enough money!');
 }
 
 function hapiHeal(){

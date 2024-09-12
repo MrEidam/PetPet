@@ -7,6 +7,8 @@ const Dfood = document.querySelector('#fooN');
 const Dclean = document.querySelector('#cleN');
 const Dhealth = document.querySelector('#heaN');
 
+let coins = 0;
+
 let chosenAnimal = 'tiger';
 
 const animalImage = {
@@ -72,7 +74,25 @@ window.addEventListener('load',() => {
     ////choseTime();
     display();
     time();
+    money();
 });
+
+function money(){
+    setTimeout (() => {
+        if(loadMoney != null){
+            localStorage.setItem('PetPet-Money', JSON.stringify(coins));
+        }
+        
+        
+        display();
+        money();
+    },1000);
+}
+
+function loadMoney(){
+    const boardString = localStorage.getItem('PetPet-Money'); // Retrieve the JSON string from local storage
+    return boardString ? JSON.parse(boardString) : null; // Parse the JSON string back into an array
+}
 
 function choseTime(){//todo Drop down displaying fucken thing
     console.log('add stuff');

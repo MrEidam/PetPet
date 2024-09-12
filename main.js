@@ -7,21 +7,26 @@ const Dfood = document.querySelector('#fooN');
 const Dclean = document.querySelector('#cleN');
 const Dhealth = document.querySelector('#heaN');
 
-const imgTiger = {
-    Normal: {
-        tiger: [
-            './img/tiger/baby.png',
-            './img/tiger/teen.png',
-            './img/tiger/adult.png',
-            './img/tiger/senior.png'
-        ]
-    },
+let chosenAnimal = 'tiger';
+
+const animalImage = {
+    animal: {
+        Normal: {
+            age: [
+                `./img/${chosenAnimal}/baby.png`,
+                `./img/${chosenAnimal}/teen.png`,
+                `./img/${chosenAnimal}/adult.png`,
+                `./img/${chosenAnimal}/senior.png`
+            ]
+        },
+        Dead: `./img/dead/${chosenAnimal}.png`,
+        Gone: `./img/gone/${chosenAnimal}.png`
+    }
+    
     ////Spring: {},
     ////Summer: {},
     ////Fall: {},
     ////Winter: {},
-    Dead: './img/dead/tiger.png',
-    Gone: './img/gone/tiger.png'
 }
 
 let attributes = {
@@ -64,31 +69,35 @@ let attributes = {
 }
 
 window.addEventListener('load',() => {
+    ////choseTime();
     display();
     time();
 });
 
-function toCPercen(varr){//todo num => %
+function choseTime(){//todo Drop down displaying fucken thing
+    console.log('add stuff');
+}
+
+function toCPercen(varr){
     let num = Math.floor((varr.value/(varr.max/100))*10)/10;
 
-    if(num>100) num = 100;
+    if(num>100) num = 100; //todo special MAX for >100%
     if(num<varr.min){
         num = varr.min;
         varr.value = varr.min;
     }
 
-    if(num>=80){
-        return `<p class="Lime">${num}%</p>`;
-    }else if(num>=60){
-        return `<p class="Yellow">${num}%</p>`;
-    }else if(num>=40){
-        return `<p class="Orange">${num}%</p>`;
-    }else if(num>=20){
-        return `<p class="DarkOrange">${num}%</p>`;
-    }else if(num>=0){
-        return `<p class="Red">${num}%</p>`;
-    }else if(num<0){
-        return `<p class="Red">${num}%</p>`;
+    switch (true){
+        case num >= 80:
+            return `<p class="Lime">${num}%</p>`;
+        case num >= 60:
+            return `<p class="Yellow">${num}%</p>`;
+        case num >= 40:
+            return `<p class="Orange">${num}%</p>`;
+        case num >= 20:
+            return `<p class="DarkOrange">${num}%</p>`;
+        default:
+            return `<p class="Red">${num}%</p>`;
     }
 }
 
@@ -101,34 +110,34 @@ function display(){
 
     if(attributes.Age.value<=6){
         NameC.innerHTML = `Junior`;
-        Aimg.src = imgTiger.Normal.tiger[0];
+        Aimg.src = animalImage.animal.age[0];
     }else if(attributes.Age.value<18){
         NameC.innerHTML = `Teen`;
-        Aimg.src = imgTiger.Normal.tiger[1];
+        Aimg.src = animalImage.animal.age[1];
     }else if(attributes.Age.value<60){
         NameC.innerHTML = `Adult`;
-        Aimg.src = imgTiger.Normal.tiger[2];
+        Aimg.src = animalImage.animal.age[2];
     }else if(attributes.Age.value<100){
         NameC.innerHTML = `Senior`;
-        Aimg.src = imgTiger.Normal.tiger[3];
+        Aimg.src = animalImage.animal.age[3];
     }else{
         NameC.innerHTML = `Dead`;
         attributes.Life.dead = 1;
         btnHide();
-        Aimg.src = imgTiger.Dead;
+        Aimg.src = animalImage.animal.Dead;
     }
 
     if(attributes.Hp.value<=0){
         NameC.innerHTML = `Dead`;
         attributes.Life.dead = 1;
         btnHide();
-        Aimg.src = imgTiger.Dead;
+        Aimg.src = animalImage.animal.Dead;
     }
 
     if(attributes.Life.away){
         NameC.innerHTML = `Gone`;
         btnHide();
-        Aimg.src = imgTiger.Gone;
+        Aimg.src = animalImage.animal.Gone;
     }
 }
 
@@ -150,7 +159,7 @@ function feed(){
     }else{
             attributes.Hunger.value += Math.floor(Math.random()*5);
             attributes.Clean.value -= Math.floor(Math.random()*7); 
-            attributes.Hp.value -= Math.floor(Math.random()*14);
+            attributes.Hp.value -= Math.floor(Math.random()*4);
         }
     }else{
         attributes.Hp.value -= Math.floor(Math.random()*5);
@@ -168,8 +177,13 @@ function clearBoy(){
 }
 
 function hapiHeal(){
-    if(attributes.Hunger.value>(attributes.Hunger.max/100)*80 && attributes.Joy.value>(attributes.Joy.max/100)*80 && attributes.Clean.value>(attributes.Clean.max/100)*90 && attributes.Hp.value < attributes.Hp.max){
+    if( attributes.Hunger.value > (attributes.Hunger.max/100)* 70 && //? Hunger heal
+        attributes.Joy.value    > (attributes.Joy.max/100)* 80 &&    //? Joy heal
+        attributes.Clean.value  > (attributes.Clean.max/100)* 69 &&  //? Clean heal
+        attributes.Hp.value < attributes.Hp.max){
+    
         attributes.Hp.value += 0.1;
+    
     }
 }
 
@@ -191,10 +205,10 @@ function sadDetection(){
 function addStuff(){
     if(!attributes.Life.away && !attributes.Life.dead){
         if(attributes.Hunger.value>0) attributes.Hunger.value -= 3;
-        if(attributes.Clean.value>0) attributes.Clean.value--;
-        if(attributes.Joy.value>-100) attributes.Joy.value--;
+        if(attributes.Clean.value>0)  attributes.Clean.value -= 1;
+        if(attributes.Joy.value>-100) attributes.Joy.value -= 1;
         if(attributes.Hp.value>0) attributes.Age.value = (attributes.Age.value*10 + 1)/10;
-        if((attributes.Hunger.value<=0)&&(attributes.Hp.value!=0)) attributes.Hp.value -= 2
+        if((attributes.Hunger.value<=0)&&(attributes.Hp.value!=0)) attributes.Hp.value -= 4;
     }
 }
 

@@ -186,6 +186,8 @@ function display(){
         Aimg.src = getDeadImage();
     }
 
+    if(attributes.Hp.value<attributes.Hp.min) attributes.Life.dead = 1;
+
     if(attributes.Life.dead){
         btnHide();
         Aimg.src = animalImage.animal.Dead();

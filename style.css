@@ -1,8 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
 *{
     padding: 0;
     margin: 0;
     box-sizing: border-box;
     text-align: center;
+    font-family: 'Ubuntu', sans-serif;
 }
 body{
     display: flex;
@@ -172,13 +174,31 @@ span p{
 
     transition: .5s;
     overflow: hidden;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
 }
 
-#chui::backdrop{
-    content: '';
-    position: absolute;
-    background: #3c3;
-    width: 200px;
-    height: 300px;
-    border: red 2px solid;
+#chui h2{
+}
+
+.animalChoose{
+    border: none;
+    border-radius: 50%;
+    background-color: #333;
+    box-shadow: 10px 10px 15px #444,
+          inset 7.5px 7.5px 10px #bbb;
+    width: 150px;
+    transition: .5s;
+}
+.animalChoose:hover{
+    transition: .25s;
+    transform: scale(1.2);
+    background-color: #c33;
+    cursor: pointer;
+}
+.animalChoose:nth-child(1){
+    margin-right: 1.5rem;
 }

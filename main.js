@@ -9,7 +9,24 @@ const Dhealth = document.querySelector('#heaN');
 
 let coins = 0;
 
-let chosenAnimal = 'tiger';
+let chosenAnimal = '';
+
+function getAnimalImage(stage){
+    const stages = ['baby', 'teen', 'adult', 'senior'];
+    if(stage >= 0 && stage < stages.length){
+        return `./img/${chosenAnimal}/${stages[stage]}.png`;
+    }
+    return '';
+}
+
+function getDeadImage(){
+    return `./img/dead/${chosenAnimal}.png`;
+}
+
+function getGoneImage(){
+    return `./img/gone/${chosenAnimal}.png`;
+}
+
 
 const animalImage = {
     animal: {
@@ -18,13 +35,13 @@ const animalImage = {
                 `./img/${chosenAnimal}/baby.png`,
                 `./img/${chosenAnimal}/teen.png`,
                 `./img/${chosenAnimal}/adult.png`,
-                `./img/${chosenAnimal}/senior.png`
+                `./img/${chosenAnimal}/senior.png`,
             ]
         },
-        Dead: `./img/dead/${chosenAnimal}.png`,
-        Gone: `./img/gone/${chosenAnimal}.png`
+        Dead: function(){ return `./img/dead/${chosenAnimal}.png`; },
+        Gone: function(){ return `./img/gone/${chosenAnimal}.png`; }
     }
-}
+};
 
 let attributes = {
     Name: [],
@@ -64,12 +81,32 @@ let attributes = {
         away: 0,
     }
 }
+function choseTime(){
+    document.querySelector('#chui').style.display = 'flex';
+    document.querySelector('#blurs').style.display = 'flex';
+}
+function option(num){
+    document.querySelector('#chui').style.display = 'none';
+    document.querySelector('#blurs').style.display = 'none';
 
-window.addEventListener('load',() => {
-    ////choseTime();
+    switch(num){
+        case 0:
+            chosenAnimal = 'tiger';
+            break;
+        case 1:
+            chosenAnimal = 'shiba';
+            break;
+        default:
+            alert('MrEidam did a oopsie dopsie');
+            break;
+    }
     display();
     time();
     money();
+}
+
+window.addEventListener('load',() => {
+    choseTime();
 });
 
 function money(){
@@ -102,19 +139,26 @@ function toCPercen(varr){
         varr.value = varr.min;
     }
 
-    switch (true){
+    let colorClass;
+    switch(true){
         case num >= 80:
-            return `<p class="Lime">${num}%</p>`;
+            colorClass = "Lime";
+            break;
         case num >= 60:
-            return `<p class="Yellow">${num}%</p>`;
+            colorClass = "Yellow";
+            break;
         case num >= 40:
-            return `<p class="Orange">${num}%</p>`;
+            colorClass = "Orange";
+            break;
         case num >= 20:
-            return `<p class="DarkOrange">${num}%</p>`;
+            colorClass = "DarkOrange";
+            break;
         default:
-            return `<p class="Red">${num}%</p>`;
+            colorClass = "Red";
     }
+    return `<p class="${colorClass}">${num}%</p>`;
 }
+
 
 function display(){
     Dage.innerHTML    = (attributes.Age.value);
@@ -123,36 +167,33 @@ function display(){
     Dclean.innerHTML  = toCPercen(attributes.Clean);
     Dhealth.innerHTML = toCPercen(attributes.Hp);
 
-    if(attributes.Age.value<=6){
+    if(attributes.Age.value <= 6){
         NameC.innerHTML = `Junior`;
-        Aimg.src = animalImage.animal.Normal.age[0];
-    }else if(attributes.Age.value<18){
+        Aimg.src = getAnimalImage(0);
+    }else if(attributes.Age.value < 18){
         NameC.innerHTML = `Teen`;
-        Aimg.src = animalImage.animal.Normal.age[1];
-    }else if(attributes.Age.value<60){
+        Aimg.src = getAnimalImage(1);
+    }else if(attributes.Age.value < 60){
         NameC.innerHTML = `Adult`;
-        Aimg.src = animalImage.animal.Normal.age[2];
-    }else if(attributes.Age.value<attributes.Age.max){
+        Aimg.src = getAnimalImage(2);
+    }else if(attributes.Age.value < attributes.Age.max){
         NameC.innerHTML = `Senior`;
-        Aimg.src = animalImage.animal.Normal.age[3];
+        Aimg.src = getAnimalImage(3);
     }else{
         NameC.innerHTML = `Dead`;
         attributes.Life.dead = 1;
         btnHide();
-        Aimg.src = animalImage.animal.Dead;
+        Aimg.src = getDeadImage();
     }
 
-    if(attributes.Hp.value<=0){
-        NameC.innerHTML = `Dead`;
-        attributes.Life.dead = 1;
+    if(attributes.Life.dead){
         btnHide();
-        Aimg.src = animalImage.animal.Dead;
+        Aimg.src = animalImage.animal.Dead();
     }
-
-    if(attributes.Life.away){
-        NameC.innerHTML = `Gone`;
+    
+    if(attributes.Life.away) {
         btnHide();
-        Aimg.src = animalImage.animal.Gone;
+        Aimg.src = animalImage.animal.Gone();
     }
 }
 

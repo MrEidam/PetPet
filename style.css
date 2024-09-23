@@ -184,6 +184,10 @@ span p{
 #chui h2{
 }
 
+#chui a{
+    color: #69f;
+}
+
 .animalChoose{
     border: none;
     border-radius: 50%;
@@ -194,9 +198,11 @@ span p{
     transition: .5s;
 }
 .animalChoose:hover{
+    border-radius: 25%;
     transition: .25s;
     transform: scale(1.2);
-    background-color: #c33;
+    background-color: red;
+    background-color: var(--clr);
     cursor: pointer;
 }
 .animalChoose:nth-child(1){

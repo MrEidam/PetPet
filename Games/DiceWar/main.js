@@ -18,6 +18,26 @@ let plaScore = document.querySelector('#playerScore');
 let enemyScore = 0;
 let playerScore = 0;
 
+let moneyDisplay = document.querySelector('#money');
+let money = 0;
+
+async function display(){
+    moneyDisplay.innerHTML = money;
+}
+
+async function nft(amount){ //! MONEY POPPING
+    let dabloons = document.createElement('h4');
+    dabloons.classList.add('coins');
+    if(amount>0) dabloons.innerHTML = `+${amount}`;
+    else dabloons.innerHTML = `${amount}`
+    document.body.append(dabloons);
+    money += amount;
+    display();
+    setTimeout(() => {
+        dabloons.remove();
+    }, 150);
+}
+
 function ranD6(){
     return Math.floor(Math.random()*6)+1;
 }
@@ -28,7 +48,7 @@ function enemyRoll(){
         const point = ranD6();
         enemyScore += point;
         e.src = `./Dices/${point}.png`;
-        e.classList.value="";
+        e.classList.value="dice";
         e.classList.add("pop");
         setTimeout(() => {
             e.classList.remove('pop');
@@ -44,7 +64,7 @@ function playerRoll(){
         const point = ranD6();
         playerScore += point;
         e.src = `./Dices/${point}.png`;
-        e.classList.value="";
+        e.classList.value="dice";
         e.classList.add("pop");
         setTimeout(() => {
             e.classList.remove('pop');
@@ -89,10 +109,13 @@ function gamble(){
     setTimeout(() => {
         if(playerScore>enemyScore){
             won();
+            nft(playerScore-enemyScore);
         }else if(playerScore<enemyScore){
             lost();
+            nft(playerScore-enemyScore);
         }else{
             draw();
+            nft(10)
             console.log(`Player: ${playerScore}`);
             console.log(`Enemy: ${enemyScore}`);
         }

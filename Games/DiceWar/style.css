@@ -108,6 +108,24 @@ button{
     }
 }
 
+@media screen and (max-width: 600px){
+    .dice{
+        width: 50px;
+        height: 50px;
+        margin: .7rem;
+        border-radius: 7.5px;
+    }
+}
+
+@media screen and (max-width: 676px){
+    .dice{
+        width: 60px;
+        height: 60px;
+        margin: .8rem;
+        border-radius: 9px;
+    }
+}
+
 .cash{
     position: absolute;
     left: 0;
@@ -129,7 +147,7 @@ button{
 
 .coins{
     position: absolute;
-    color: red;
+    color: #0f0;
     z-index: 5;
     user-select: none;
     left: 135px;

@@ -24,6 +24,10 @@ img{
     object-fit: contain;
 }
 
+a{
+    color: #69f;
+}
+
 main{
     /*clip-path: polygon(20% 0, 80% 0, 100% 100%, 0 100%);*/
     background: #333333aa;
@@ -68,16 +72,17 @@ span p{
     filter: drop-shadow(1.5px 1.5px 6px #aaa);
 }
 
-.games{
+.moverSpace{
     border-radius: .5rem;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     padding: 1rem;
-    margin: .5rem;
+    margin: 1rem .5rem .5rem .5rem;
     background: #222222cc;
     height: 80px;
 }
+
 .gamesPromo{
     width: 69px; /* Mobile */
     height: 48px;
@@ -87,8 +92,11 @@ span p{
     flex-direction: column;
     justify-content: space-around;
 }
-.gamesText a{
-    color: red;
+
+.moverSpace .settingsText{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
 }
 
 
@@ -184,9 +192,10 @@ span p{
 #chui h2{
 }
 
+/*
 #chui a{
     color: #69f;
-}
+}*/
 
 .animalChoose{
     border: none;

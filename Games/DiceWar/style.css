@@ -10,7 +10,7 @@ body{
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    min-height: 100vh;
+    min-height: 100vmax;
     background-color: #333;
     color: #fff;
     text-align: center;

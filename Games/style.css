@@ -11,7 +11,7 @@ body{
     justify-content: center;
     align-content: center;
     align-items: center;
-    min-height: 100vh;
+    min-height: 100dvh;
     background: #333;
     flex-wrap: wrap;
     position: relative;
@@ -104,7 +104,7 @@ body{
     width: 200px;
     height: 150px;
     border-radius: 10px;
-    margin: 1rem;
+    margin: .5rem;
     overflow: hidden;
     box-shadow: 
         inset 2.5px 2.5px 7.5px #aaaaaacc,

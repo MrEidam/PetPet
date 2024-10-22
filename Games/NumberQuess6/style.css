@@ -10,7 +10,7 @@ body{
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    min-height: 100vh;
+    min-height: 100dvh;
     background-color: #333;
     background-image: url("./pc.jpg");
     background-repeat: no-repeat;
@@ -118,7 +118,7 @@ button{
 .gameBack{
     padding: 1rem;
     height: 400px;
-    width: 300px;
+    width: 275px;
     display: flex;
     justify-content: space-around;
     align-items: center;

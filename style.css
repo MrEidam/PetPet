@@ -10,7 +10,7 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vmin;
+    min-height: 100dvh;
     background: #333;
     background-image: url("./img/pc.jpg");
     background-repeat: no-repeat;

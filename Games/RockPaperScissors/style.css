@@ -16,7 +16,7 @@ body{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
+    min-height: 100dvh;
     color: #fff;
     background-image: url('./pc.jpg');
     background-repeat: no-repeat;
